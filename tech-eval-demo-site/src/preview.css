@@ -1,0 +1,34 @@
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&family=Oswald:wght@500&family=Open+Sans+Condensed:wght@300&display=swapdisplay=swap);
+
+#preview{
+    margin-top: 50px;
+    background-color: #a1bbe6;
+    width: 350px; 
+    height: 200px;
+    border-radius: 2%;
+    font-family: verdana, sans-serif;
+}
+
+#name {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Oswald';
+    color: #18181a;
+    margin-bottom: 10px;
+    padding-top: 25px;
+}
+
+#profession {
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Oswald';
+    color: #18181a;
+}
+
+#contact {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Open Sans Condensed';
+    color: #29292e;
+}
