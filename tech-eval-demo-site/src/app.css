@@ -1,0 +1,13 @@
+.content {
+  margin: auto;
+  max-height: 500px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.passwordForm{
+  display: block;
+  margin: auto;
+  max-height: 250px;
+  max-width: 250px;
+}
