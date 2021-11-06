@@ -3,11 +3,13 @@ export class PasswordForm {
   constructor() {
     this.password = '';
     this.strength = 0;
+    this.barColor = 'red'
+    this.strenghtText = '';
   }
 
   updateRequirements(){
     this.strength = 0;
-
+    
     if (hasUpper(this.password)){
       document.getElementById("caps").style.color = "green"
       this.strength++
@@ -40,8 +42,34 @@ export class PasswordForm {
       document.getElementById("len").style.color = "red"
     }
 
-  
+    //bar = document.getElementById("password-strength-meter")
+    //bar.value = this.strength;
+
     document.getElementById("password-strength-meter").value = this.strength;
+
+    switch(this.strength) {
+      case 0:
+        this.strenghtText = '';
+        break;
+      case 1:
+        this.strenghtText = 'terrible';
+        break;
+
+      case 2:
+        this.strenghtText = 'weak';
+        break;
+
+      case 3:
+        this.strenghtText = 'medium';
+        break;
+       
+      case 4:
+        this.strenghtText = 'strong';
+        break;
+
+      default:
+        this.strenghtText = '';
+    }
   }
 
 }
