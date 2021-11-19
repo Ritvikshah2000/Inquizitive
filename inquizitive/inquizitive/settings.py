@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-n7*#r!+&ofkn&#&8o#b7f2t@318gnx3bqj-xcn=a9*t1@zg!33
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['app', 'localhost', '0.0.0.0', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'quizzes.apps.QuizzesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,10 +74,15 @@ WSGI_APPLICATION = 'inquizitive.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'nesh',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

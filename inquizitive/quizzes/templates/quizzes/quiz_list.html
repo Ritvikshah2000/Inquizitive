@@ -1,0 +1,16 @@
+{% block content %}
+<h1>Welcome to Inquizitive</h1>
+  {% if quiz_list %}
+  <ul>
+    {% for quiz in quiz_list %}
+      <li>
+        {{quiz.Title}}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no quizzes.</p>
+  {% endif %}
+  <a href="{% url 'create_quiz' %}">Create Quiz</a>
+
+{% endblock %}
