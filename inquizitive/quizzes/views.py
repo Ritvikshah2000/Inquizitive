@@ -64,24 +64,3 @@ class QuizDetailView(DetailView):
     model = Quiz
     template_name = "quizzes/quiz_view.html"
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(QuizDetailView, self).get_context_data(**kwargs)
-    #     quiz = Quiz.objects.get(id=self.id)
-    #     questions = quiz.question_set.all()
-    #     context['quiz_questions'] = questions
-    #     return context
-
-
-# def selectview(request):
-#    item  = Item.objects.all() # use filter() when you have sth to filter ;)
-#    form = request.POST # you seem to misinterpret the use of form from django and POST data. you should take a look at [Django with forms][1]
-#    # you can remove the preview assignment (form =request.POST)
-#    if request.method == 'POST':
-#       selected_item = get_object_or_404(Item, pk=request.POST.get('item_id'))
-#       # get the user you want (connect for example) in the var "user"
-#       user.item = selected_item
-#       user.save()
-
-#       # Then, do a redirect for example
-
-#    return render_to_response ('select/item.html', {'items':item}, context_instance =  RequestContext(request),)

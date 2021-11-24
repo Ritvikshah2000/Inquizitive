@@ -32,13 +32,6 @@ class Quiz(models.Model):
     def __str__(self):
         return self.Title
 
-
-# class QuizForm(ModelForm):
-#     Title = forms.CharField(required=False) 
-#     class Meta:
-#         model = Quiz
-#         fields = ['Title', 'Genre_ID']
-
 class Quiz_Question(models.Model):
     Quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     Text = models.CharField(max_length=200)
