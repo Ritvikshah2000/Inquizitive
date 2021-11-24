@@ -1,0 +1,11 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% for form in formset %}
+        <div>
+        {{form.as_p}}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Save">
+</form>
