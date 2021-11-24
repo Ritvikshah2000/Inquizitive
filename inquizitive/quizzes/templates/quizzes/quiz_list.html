@@ -1,10 +1,11 @@
 {% block content %}
-<h1>Welcome to Inquizitive</h1>
+<h1>Quizzes in Genre</h1>
   {% if quiz_list %}
   <ul>
     {% for quiz in quiz_list %}
       <li>
-        {{quiz.Title}}
+        <a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a>
+        
       </li>
     {% endfor %}
   </ul>

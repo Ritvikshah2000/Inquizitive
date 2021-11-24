@@ -2,6 +2,12 @@ from django.db import models
 from django.forms import ModelForm
 from django import forms
 
+
+YES_OR_NO = (
+    (True, 'Yes'),
+    (False, 'No')
+)
+
 class User(models.Model):
     FirstName = models.CharField(max_length=200)
     LastName = models.CharField(max_length=200)
@@ -36,12 +42,11 @@ class Quiz(models.Model):
 class Quiz_Question(models.Model):
     Quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     Text = models.CharField(max_length=200)
-    Number = models.IntegerField()
     
 class Quiz_Question_Option(models.Model):
     Quiz_Question_ID = models.ForeignKey(Quiz_Question, on_delete=models.CASCADE)
     Text = models.CharField(max_length=200)
-    IsAnswer = models.BooleanField(default=False)
+    IsAnswer = models.BooleanField(default=False, choices=YES_OR_NO)
 
 class Quiz_Question_User_Answer(models.Model):
     User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
