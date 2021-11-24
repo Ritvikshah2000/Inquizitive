@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8080 #command to run app
+    volumes:
+      - .:/usr/src/app/
+    ports: 
+      - "8080:8080"
+    env_file:
+      ./.env.dev
+    depends_on:
+      - db
+  db:
+    image: postgres:13.0-alpine #db
+    volumes:
+      - dev_postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=inquizitive_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=nesh
+
+
+volumes:
+  dev_postgres_data:
+
+
+
