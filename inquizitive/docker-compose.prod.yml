@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod #use specific dockerfile
+    command: gunicorn inquizitive.wsgi:application --bind 0.0.0.0:8080 #run production-grade WSGI server
+    #volume for static files
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+    expose:
+      - 8080
+    env_file:
+      - ./.env.prod #production server environment variables
+    depends_on:
+      - db
+  db:
+    image: postgres:13.0-alpine #db
+    volumes:
+      - prod_postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.prod.db #db env file
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles #static volume for nginx server
+    ports:
+      - 8080:80
+    depends_on:
+      - web
+
+volumes:
+  prod_postgres_data:
+  static_volume:
