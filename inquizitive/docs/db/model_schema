@@ -1,0 +1,75 @@
+############## Relationships ##############
+#   -     - one TO one                    #
+#   -<    - one TO many                   #
+#   >-    - many TO one                   #
+#   >-<   - many TO many                  #
+#   -0    - one TO zero or one            #
+#   0-    - zero or one TO one            #
+#   0-0   - zero or one TO zero or one    #
+#   -0<   - one TO zero or many           #
+#   >0-   - zero or many TO one           #
+###########################################
+
+
+# TODO: See if we can utilize Django built-in user system
+User
+-
+id int PK
+first_name varchar(50)
+last_name varchar(50)
+email varchar(100)
+gender varchar(20)
+password varchar(256)                                # Salted hash of a password
+is_active boolean
+
+
+QuizGenre
+-
+id int PK
+title varchar(100)
+# num_quizzes_in_genre  (genre.quiz_set.count())
+
+
+Quiz
+-
+id int PK
+title varchar(50)
+genre int FK >-< QuizGenre.id                        # A quiz can have multiple genres and different quizzes may have the same genre
+author int FK >- User.id                             # Many quizzes may be authored by the same user
+date_created timestamp
+last_modified timestamp
+is_active boolean
+
+
+QuizQuestion
+-
+id int PK
+quiz int FK >- Quiz.id                               # A quiz has multiple questions
+question_text varchar(512)
+number int                                           # Order it appears in the quiz
+
+
+QuizQuestionOption
+-
+id int PK
+quiz_question int FK >- QuizQuestion.id              # A question has multiple options and each option belongs to one question
+text varchar(100)
+is_answer boolean                                    # Is a correct option for the quiz question (there may be multiple)
+
+
+QuizUserAnswer
+-
+id int PK
+user int FK >- User.id                               # A user will provide multiple answers in one quiz
+quiz_question int FK - QuizQuestion.id               # An answer may not be submitted to multiple questions
+quiz_question_option int FK - QuizQuestionOption.id  # A user can only provide one answer to their question
+# is_correct (quiz_question_option.is_answer)
+
+
+QuizUserAttempt
+-
+id int PK
+user int FK >- User.id                               # A user may attempt the same quiz multiple times
+quiz int FK - Quiz.id                                # A particular attempt is on exactly one quiz
+number_correct int
+date_attempted timestamp
