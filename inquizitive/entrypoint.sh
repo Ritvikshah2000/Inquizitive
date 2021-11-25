@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#checks wether postgres is helahty and applies migrations before running dev server
+#checks whether postgres is healthy and applies migrations before running dev server
 
 if [ "$DATABASE" = "postgres" ] 
 then
