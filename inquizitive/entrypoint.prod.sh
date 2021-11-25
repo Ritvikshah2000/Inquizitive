@@ -16,5 +16,6 @@ python manage.py flush --no-input #removes all data from database
 python manage.py migrate --no-input
 python manage.py makemigrations
 python manage.py collectstatic --no-input --clear #collects static files into STATIC_ROOT
+python manage.py loaddata data.json
 
 exec "$@"
