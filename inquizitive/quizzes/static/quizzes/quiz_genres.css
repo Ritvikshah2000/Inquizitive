@@ -1,51 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
-
+/* Start of body styling */
 body, html {
     width: 100%;
     height: 100%;
-    margin: 0;
-    overflow: hidden;
+    margin: 0 auto;
   }
 
 body {
     background: white url("images/sporcle_placeholder.png") no-repeat;
     background-size: cover;
-
 }
+/* End of body styling */
 
+
+
+/* Start of header styling */
 h1, h2{
     text-align: center;
 }
+
 h1 {
     perspective: 10px;
     font-size: clamp(10px, 75px, 100px);
 }
+/* End of header styling */
 
-li{
-    display: inline-block;
 
+
+/* Start of genre list styling */
+.genre_list{
+    margin: 0 auto;
+    width: 680px;
+}
+
+ul{
+    position:relative;
+    display: inline-block;  
+    list-style: none;
+    width:100%;
+    margin: auto;
+    padding: 0;
+  }
+
+  li{
     width: 200px;
     height: 100px;
-}
+    list-style: none;
+    text-align: center;
+    margin: 10px; 
+    display: inline-block;
+  }
 
 li img{
     width: 100%;
     height: 100%;
 }
+/* End of genre list styling */
 
 
 
+/* Start of button styling */
+.create_quiz{
+    margin:0 auto;
+    margin-top: 30px;
+    display:block;
+    background-color: white;
+    border-radius: 10%;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    transition-duration: 0.2s;
+}
+
+.create_quiz:hover {
+    background-color: rgb(219, 219, 219);
+    color: rgb(0, 255, 21);
+  }
+/* End of button styling */
+
+
+
+/* Start of fading animations */
 .fade-in-title {
-    animation: fadeInTitle 5s;
+    animation: fadeInTitle 3s;
 }
 
 .fade-in-description{
-    animation: fadeInDescription 5s;
+    animation: fadeInDescription 3s;
 }
 
 .fade-in-content{
-    animation: fadeInContent 5s;
+    animation: fadeInContent 3s;
 }
 
 @keyframes fadeInTitle {
@@ -66,3 +110,4 @@ li img{
     66%  {opacity: 0;}
     100% {opacity: 1;}
 }
+/* End of fading animations */

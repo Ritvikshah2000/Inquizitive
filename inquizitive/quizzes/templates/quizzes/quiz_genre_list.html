@@ -6,18 +6,24 @@
 <body>
   <h1 class="fade-in-title">Welcome to <strong>Inquizitive</strong></h1>
   <h2 class="fade-in-description">Select a Genre to view all the quizzes in that Genre</h3>
-    {% if quiz_genre_list %}
-    <ul class="fade-in-content">
-      {% for genre in quiz_genre_list %}
-        <li>
-          <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}
-          <img src="static/quizzes/images/sports_placeholder.jpg" />
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    <a href="{% url 'create_quiz' %}">Create Quiz</a>
+    <div class="fade-in-content">
+      {% if quiz_genre_list %}
+      <div class="genre_list">
+        <ul>
+          {% for genre in quiz_genre_list %}
+            <li>
+              <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}
+              <img src="static/quizzes/images/genreimages/placeholder_image.png" />
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    <button class="create_quiz"><a href="{% url 'create_quiz' %}">Create Quiz</a></button>
+    </div>
+    
+    
 </body>
 
 {% endblock %}
