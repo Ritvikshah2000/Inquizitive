@@ -1,4 +1,8 @@
 {% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+
 <h1>Welcome to Inquizitive</h1>
 <h3>Select a Genre to view all the quizzes in that Genre</h3>
   {% if quiz_genre_list %}
