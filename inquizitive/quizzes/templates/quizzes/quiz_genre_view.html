@@ -1,4 +1,7 @@
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
+
 <h1>Quizzes in {{quiz_genre.Text}} Genre</h1>
   
 {% if quiz_genre.quiz_set.all %}

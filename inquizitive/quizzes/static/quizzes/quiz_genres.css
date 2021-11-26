@@ -28,7 +28,7 @@ h1 {
 
 /* Start of genre list styling */
 .genre_list{
-    margin: 0 auto;
+    margin: 0 auto; /* Centers element*/
     width: 680px;
 }
 
@@ -37,7 +37,7 @@ ul{
     display: inline-block;  
     list-style: none;
     width:100%;
-    margin: auto;
+    margin: auto; /* Centers element*/
     padding: 0;
   }
 
@@ -60,7 +60,7 @@ li img{
 
 /* Start of button styling */
 .create_quiz{
-    margin:0 auto;
+    margin:0 auto; /* Centers element*/
     margin-top: 30px;
     display:block;
     background-color: white;
