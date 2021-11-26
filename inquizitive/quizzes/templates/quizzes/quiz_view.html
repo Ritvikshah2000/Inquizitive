@@ -1,4 +1,6 @@
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
 <h1>{{quiz.Title}}</h1>
 <div>Quiz Genre: {{quiz.Genre}}</div>
 <br>

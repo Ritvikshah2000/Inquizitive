@@ -1,3 +1,7 @@
+<!-- Create_quiz_question page -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
