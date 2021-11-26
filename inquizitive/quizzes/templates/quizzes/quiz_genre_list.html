@@ -4,10 +4,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
 
 <body>
-  <h1>Welcome to Inquizitive</h1>
-  <h3>Select a Genre to view all the quizzes in that Genre</h3>
+  <h1 class="fade-in-title">Welcome to <strong>Inquizitive</strong></h1>
+  <h2 class="fade-in-description">Select a Genre to view all the quizzes in that Genre</h3>
     {% if quiz_genre_list %}
-    <ul>
+    <ul class="fade-in-content">
       {% for genre in quiz_genre_list %}
         <li>
           <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}</a>

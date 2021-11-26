@@ -1,9 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
 body {
     background: white url("images/sporcle_placeholder.png") no-repeat;
-    background-size: 100%;
+    background-size: cover;
+
+}
+
+h1, h2{
+    text-align: center;
+}
+h1 {
+    perspective: 10px;
+    font-size: clamp(10px, 75px, 100px);
 }
 
 li a {
     color: green;
     size: 999px;
+}
+
+
+
+.fade-in-title {
+    animation: fadeInTitle 5s;
+}
+
+.fade-in-description{
+    animation: fadeInDescription 5s;
+}
+
+.fade-in-content{
+    animation: fadeInContent 5s;
+}
+
+@keyframes fadeInTitle {
+    0%   {opacity: 0;}
+    33%  {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeInDescription {
+    0%   {opacity: 0;}
+    33%  {opacity: 0;}
+    66%  {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeInContent {
+    0%   {opacity: 0;}
+    66%  {opacity: 0;}
+    100% {opacity: 1;}
 }
