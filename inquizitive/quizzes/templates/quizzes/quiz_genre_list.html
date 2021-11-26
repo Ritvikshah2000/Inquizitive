@@ -10,8 +10,9 @@
     <ul class="fade-in-content">
       {% for genre in quiz_genre_list %}
         <li>
-          <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}</a>
-          
+          <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}
+          <img src="static/quizzes/images/sports_placeholder.jpg" />
+          </a>
         </li>
       {% endfor %}
     </ul>
