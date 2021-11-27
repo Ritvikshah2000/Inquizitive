@@ -7,7 +7,6 @@
   <div class="test">
     <h1>{{quiz_question.Text}}</h1>
   </div>
-    
   {% if quiz_question.quiz_question_option_set.all %}
     <ul>
       {% for option in quiz_question.quiz_question_option_set.all %}
