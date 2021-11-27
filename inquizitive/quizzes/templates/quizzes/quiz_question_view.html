@@ -1,28 +1,39 @@
 <!-- Question view page -->
 {% block content %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
 
-<h1>{{quiz_question.Text}}</h1>
-  
-{% if quiz_question.quiz_question_option_set.all %}
-<ul>
-  {% for option in quiz_question.quiz_question_option_set.all %}
-  <li>
-      {{option.Text}}
-    {% if option.IsAnswer %}
-    == Answer
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<h4>There are no options for this Question</h4>
-{% endif %}
-<br>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
 
-<a href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
-<br>
-<a href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
+  <div class="test">
+    <h1>{{quiz_question.Text}}</h1>
+  </div>
+    
+  {% if quiz_question.quiz_question_option_set.all %}
+    <ul>
+      {% for option in quiz_question.quiz_question_option_set.all %}
+        <li>
+            {{option.Text}}
+          {% if option.IsAnswer %}
+            == Answer
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h4>There are no options for this Question</h4>
+  {% endif %}
+
+  <br>
+
+  <div class="add_option">
+    <a href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
+  </div>
+
+  <br>
+
+
+  <div class="back">
+    <a href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
+  </div>
 
 {% endblock %}
