@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_creation.css' %}">
+
 <h2>Create New Quiz</h2>
 <form method="post">
     {% csrf_token %}

@@ -1,16 +1,36 @@
 {% block content %}
-<h1>Welcome to Inquizitive</h1>
-<h3>Select a Genre to view all the quizzes in that Genre</h3>
-  {% if quiz_genre_list %}
-  <ul>
-    {% for genre in quiz_genre_list %}
-      <li>
-        <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}</a>
-        
-      </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  <a href="{% url 'create_quiz' %}">Create Quiz</a>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+
+<body>
+
+  <!-- Headers with 2 classes for different timing on the fade-in animation -->
+  <h1 class="fade-in-title">Welcome to <strong>Inquizitive</strong></h1>
+  <h2 class="fade-in-description">Select a Genre to view all the quizzes in that Genre</h3>
+
+    <!-- Div containing all other content to fade-in last -->
+    <div class="fade-in-content">
+
+      <!--Only runs if genres exist?-->
+      {% if quiz_genre_list %}
+      <div class="genre_list">
+        <ul>
+          {% for genre in quiz_genre_list %}
+            <li>
+              <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}
+              <!-- Will be replaced with individual images of each genre based on their id-->
+              <img src="static/quizzes/images/genreimages/placeholder_image.png" /> 
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    <button class="create_quiz"><a href="{% url 'create_quiz' %}">Create Quiz</a></button>
+    </div>
+    
+    
+</body>
 
 {% endblock %}

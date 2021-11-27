@@ -1,4 +1,8 @@
+<!-- Question view page -->
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
+
 <h1>{{quiz_question.Text}}</h1>
   
 {% if quiz_question.quiz_question_option_set.all %}
