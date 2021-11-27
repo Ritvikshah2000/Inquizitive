@@ -5,9 +5,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
 {% endblock %}
 
+<!-- Quiz view page -->
 {% block content %}
 <h1>{{quiz.Title}}</h1>
-<div>Quiz Genre: {{quiz.Genre}}</div>
+<div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
 <br />
 
 <h3>Quiz Questions</h3>
@@ -17,10 +18,13 @@
   {% endfor %}
 </ul>
 <br />
-<a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+<div class="add_question">
+  <a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+</div>
 <br />
 <a href="{% url 'delete_quiz' quiz.id%}">Delete Quiz</a>
-<br />
-<a href="{% url 'view_genre' quiz.Genre.id %}">Back to Quizzes</a>
+<div class="back">
+  <a href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
+</div>
 
 {% endblock %}

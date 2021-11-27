@@ -2,22 +2,18 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_form.css.css' %}">
 {% endblock %}
 
 {% block content %}
 <!-- Create_quiz_question Page -->
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
 
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    {% for form in formset %}
-        <div>
-        {{form.as_p}}
-        </div>
-    {% endfor %}
-    <input type="submit" value="Save">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% for form in formset %}
+    {{form.as_p}}
+  {% endfor %}
+  <input type="submit" value="Save">
 </form>
 {% endblock %}
