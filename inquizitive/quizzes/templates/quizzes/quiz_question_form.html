@@ -1,15 +1,14 @@
 <!-- Create_quiz_question page -->
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_form.css' %}">
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    {% for form in formset %}
-        <div>
-        {{form.as_p}}
-        </div>
-    {% endfor %}
-    <input type="submit" value="Save">
-</form>
+<div class="create_quiz_form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% for form in formset %}>
+            {{form.as_p}}
+        {% endfor %}
+        <input type="submit" value="Save">
+    </form> 
+</div>
