@@ -1,12 +1,69 @@
 /* Start of body styling */
 body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  }
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
 
 body {
-    background: white url("images/sporcle_placeholder.png") no-repeat;
-    background-size: cover;
+  background: white url("images/sporcle_placeholder.png") no-repeat;
+  background-size: cover;
 }
 /* End of body styling */
+
+
+
+
+/* Start of header styling */
+h1 {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 55px;
+}
+
+.genre_name{
+  text-align: center;
+  font-size: 40px;
+}
+
+h3 {
+  margin-left: 10px;
+}
+/* End of header styling */
+
+
+
+/* Start of header styling */
+.add_question {
+  margin-left: 10px;
+}
+/* End of header styling */
+
+
+
+/* Start of link styling */
+a{
+  color: black;
+}
+
+a:hover{
+  color: white;
+}
+/* End of link styling */
+
+
+
+
+/* Start of back button styling */
+.back{
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+
+  /* Place at bottom */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

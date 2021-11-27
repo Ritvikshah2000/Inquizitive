@@ -1,23 +1,30 @@
+<!-- Quiz view page -->
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
+
 <h1>{{quiz.Title}}</h1>
-<div>Quiz Genre: {{quiz.Genre}}</div>
+<div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
 <br>
 
 
 <h3>Quiz Questions</h3>
 <ul>
   {% for question in quiz.quiz_question_set.all %}
-  <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
+    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
   {% endfor %}
 </ul>
  
 
 <br>
+<div class="add_question">
+  <a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+</div>
 
-<a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
 <br>
+
+<div class="back">
   <a href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
+</div>
 
 {% endblock %}
