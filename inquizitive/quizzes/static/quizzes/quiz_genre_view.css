@@ -10,3 +10,43 @@ body {
     background-size: cover;
 }
 /* End of body styling */
+
+
+
+
+/* Start of header styling */
+h1 {
+  text-align: center;
+  font-size: clamp(30px, 50px, 75px);
+}
+/* End of header styling */
+
+
+
+
+/* Start of link styling */
+a{
+  color: black;
+}
+
+a:hover{
+  color: white;
+}
+/* End of link styling */
+
+
+
+
+/* Start of back button styling */
+.back{
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+
+  /* Place at bottom */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

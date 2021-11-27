@@ -3,17 +3,22 @@
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
 
 <h1>Quizzes in {{quiz_genre.Text}} Genre</h1>
-  
+
 {% if quiz_genre.quiz_set.all %}
-<ul>
-  {% for quiz in quiz_genre.quiz_set.all %}
-  <li><a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a></li>
-  {% endfor %}
-</ul>
+  <ul>
+    {% for quiz in quiz_genre.quiz_set.all %}
+      <li><a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a></li>
+    {% endfor %}
+  </ul>
+
 {% else %}
-<h4>There are no quizzes in this Genre</h4>
+  <h4>There are no quizzes in this Genre</h4>
 {% endif %}
+
 <br>
+
+<div class="back">
   <a href="/">Back to All Genres</a>
+</div>
 
 {% endblock %}
