@@ -19,12 +19,15 @@ class QuizGenreDetailView(DetailView):
 class QuizCreateView(CreateView):
     model = Quiz
     fields = ('Title', 'Genre')
+
     def get_success_url(self):
         return reverse('create_question', kwargs={'quiz_id': self.object.id})
 
 
 class QuizDeleteView(DeleteView):
     model = Quiz
+    template_name = "quizzes/confirm_delete.html"
+
     def get_success_url(self):
         return reverse('index')
 
@@ -34,7 +37,6 @@ QuizQuestionOptionFormset = inlineformset_factory(Quiz_Question, Quiz_Question_O
 class QuizQuestionCreateView(CreateView):
     model = Quiz_Question
     fields = ('Text',)
-
   
     def form_valid(self, form):
         self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['quiz_id'])
@@ -46,9 +48,27 @@ class QuizQuestionCreateView(CreateView):
     def get_success_url(self):
         return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
 
+
 class QuizQuestionDetailView(DetailView):
     model = Quiz_Question
     template_name = "quizzes/quiz_question_view.html"
+
+
+class QuizQuestionDeleteView(DeleteView):
+    model = Quiz_Question
+    template_name = "quizzes/confirm_delete.html"
+
+    # TODO: Set up redirect to quiz instead of index
+    # def form_valid(self, form):
+    #     self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['object'].kwargs['quiz_id'])
+    #     form.instance.Quiz_ID = self.Quiz_ID
+    #     form.save()
+    #     form.instance.save()
+    #     return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        # return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
+        return reverse('index')
 
 
 class QuizQuestionOptionCreateView(CreateView):

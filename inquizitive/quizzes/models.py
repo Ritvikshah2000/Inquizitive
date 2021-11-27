@@ -35,6 +35,8 @@ class Quiz(models.Model):
 class Quiz_Question(models.Model):
     Quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     Text = models.CharField(max_length=200)
+    def __str__(self):
+        return self.Text
     
 class Quiz_Question_Option(models.Model):
     Quiz_Question_ID = models.ForeignKey(Quiz_Question, on_delete=models.CASCADE)
