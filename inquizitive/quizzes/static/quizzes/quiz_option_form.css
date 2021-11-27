@@ -1,3 +1,15 @@
+/* Start of header styling */
+h1, h2{
+    text-align: center;
+}
+
+h1 {
+    perspective: 10px;
+    font-size: clamp(10px, 75px, 100px);
+}
+/* End of header styling */
+
+
 /* Start of body styling */
 body, html {
     width: 100%;
