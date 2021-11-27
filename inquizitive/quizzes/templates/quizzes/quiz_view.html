@@ -14,7 +14,7 @@
 <h3>Quiz Questions</h3>
 <ul>
   {% for question in quiz.quiz_question_set.all %}
-  <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
+    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
   {% endfor %}
 </ul>
 <br />

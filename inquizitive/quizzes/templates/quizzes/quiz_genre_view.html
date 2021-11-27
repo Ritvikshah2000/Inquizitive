@@ -7,6 +7,7 @@
 
 {% block content %}
 <h1>Quizzes in {{quiz_genre.Text}} Genre</h1>
+<h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
 
 {% if quiz_genre.quiz_set.all %}
   <ul>
@@ -15,7 +16,7 @@
     {% endfor %}
   </ul>
 {% else %}
-  <h4>There are no quizzes in this Genre</h4>
+  <h2>There are no quizzes in this Genre</h2>
 {% endif %}
 
 <br />
