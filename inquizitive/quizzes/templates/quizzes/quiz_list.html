@@ -1,4 +1,8 @@
-<!-- Currently unused? -->
+{% extends 'quizzes/base.html' %}
+<!-- {% load static %} -->
+
+<!-- TODO: Add CSS -->
+
 {% block content %}
 <h1>Quizzes in Genre</h1>
   {% if quiz_list %}
@@ -6,7 +10,6 @@
     {% for quiz in quiz_list %}
       <li>
         <a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a>
-        
       </li>
     {% endfor %}
   </ul>
@@ -14,5 +17,4 @@
     <p>There are no quizzes.</p>
   {% endif %}
   <a href="{% url 'create_quiz' %}">Create Quiz</a>
-
 {% endblock %}

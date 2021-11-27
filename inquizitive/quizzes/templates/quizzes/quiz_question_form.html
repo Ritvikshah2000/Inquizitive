@@ -1,5 +1,12 @@
-<!-- Create_quiz_question page -->
+{% extends 'quizzes/base.html' %}
 {% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Create_quiz_question Page -->
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genres.css' %}">
 
 <form method="post">
@@ -13,3 +20,4 @@
     {% endfor %}
     <input type="submit" value="Save">
 </form>
+{% endblock %}
