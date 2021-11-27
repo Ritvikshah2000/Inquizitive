@@ -12,6 +12,16 @@ body {
 /* End of body styling */
 
 
+
+/* Start of header styling */
+h1 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 55px;
+  }
+/* End of header styling */
+
+
 .create_quiz_form{
     margin:0 auto; /* Centers element*/
     margin-top: 30px;

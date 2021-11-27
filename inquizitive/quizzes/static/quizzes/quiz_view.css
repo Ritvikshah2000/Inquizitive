@@ -32,12 +32,20 @@ h3 {
 /* End of header styling */
 
 
+/* Start of question list styling */
+li{
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+/* End of question list styling */
 
-/* Start of header styling */
+
+
+/* Start of add question button styling */
 .add_question {
   margin-left: 10px;
 }
-/* End of header styling */
+/* End of add question button styling */
 
 
 

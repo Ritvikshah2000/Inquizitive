@@ -7,7 +7,7 @@
   <div class="test">
     <h1>{{quiz_question.Text}}</h1>
   </div>
-    
+  <h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
   {% if quiz_question.quiz_question_option_set.all %}
     <ul>
       {% for option in quiz_question.quiz_question_option_set.all %}
@@ -20,7 +20,7 @@
       {% endfor %}
     </ul>
   {% else %}
-    <h4>There are no options for this Question</h4>
+    <h2>There are no options for this Question</h2>
   {% endif %}
 
   <br>

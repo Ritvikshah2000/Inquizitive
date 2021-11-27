@@ -20,8 +20,22 @@ h1 {
   text-align: center;
   font-size: clamp(30px, 50px, 75px);
 }
+
+h2{ /* No quizzes in genre*/
+  font-size: 30px;
+  margin-left: 20px;
+}
 /* End of header styling */
 
+
+
+/* Start of quiz list styling */
+li{
+  font-size: 25px;
+  padding-bottom: 15px;
+}
+
+/* End of quiz list styling */
 
 
 
