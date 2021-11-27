@@ -19,5 +19,8 @@
 <br />
 <a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
 <br />
-<a href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
+<a href="{% url 'delete_quiz' quiz.id%}">Delete Quiz</a>
+<br />
+<a href="{% url 'view_genre' quiz.Genre.id %}">Back to Quizzes</a>
+
 {% endblock %}

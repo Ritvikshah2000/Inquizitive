@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.template import loader
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.forms.models import inlineformset_factory
 
 from .models import *
@@ -21,6 +21,12 @@ class QuizCreateView(CreateView):
     fields = ('Title', 'Genre')
     def get_success_url(self):
         return reverse('create_question', kwargs={'quiz_id': self.object.id})
+
+
+class QuizDeleteView(DeleteView):
+    model = Quiz
+    def get_success_url(self):
+        return reverse('index')
 
 
 QuizQuestionOptionFormset = inlineformset_factory(Quiz_Question, Quiz_Question_Option, form=QuizQuestionOptionForm, extra=4, can_delete=False)
