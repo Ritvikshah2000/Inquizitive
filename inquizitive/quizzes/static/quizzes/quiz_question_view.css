@@ -20,6 +20,12 @@ h1{
   text-align: center;
   font-size: 55px;
 }
+
+h2{
+  font-size: 20px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
 /* End of header styling */
 
 
