@@ -39,6 +39,14 @@
       </div>
       {% endif %}
     <button class="create_quiz"><a href="{% url 'create_quiz' %}">Create Quiz</a></button>
+    {% if user.is_authenticated  %}
+    <button class="login-logout"><a href="{% url 'profile' %}">Profile</a></button>
+    <button class="login-logout"><a href="{% url 'logout' %}">Logout</a></button>
+    {% else %}
+    <button class="login-logout"><a href="{% url 'login' %}">Login</a></button>
+    <p></p>
+    <button class="register"><a href="{% url 'register' %}">Register</a></button>
+    {% endif %}
     </div>
     
     
