@@ -1,11 +1,7 @@
-{% extends 'quizzes/base.html' %}
-{% load static %}
-
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
-{% endblock %}
-
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
+
 <h1>Quizzes in {{quiz_genre.Text}} Genre</h1>
 <h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
 
@@ -15,13 +11,16 @@
       <li><a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a></li>
     {% endfor %}
   </ul>
+
 {% else %}
   <h2>There are no quizzes in this Genre</h2>
 {% endif %}
 
-<br />
+
+<br>
 
 <div class="back">
   <a href="/">Back to All Genres</a>
 </div>
+
 {% endblock %}

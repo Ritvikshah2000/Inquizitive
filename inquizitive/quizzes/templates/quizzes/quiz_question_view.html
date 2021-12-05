@@ -1,36 +1,39 @@
-{% extends 'quizzes/base.html' %}
-{% load static %}
-
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
-{% endblock %}
-
 <!-- Question view page -->
 {% block content %}
-<div class="test">
-  <h1>{{quiz_question.Text}}</h1>
-</div>
-<h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
 
-{% if quiz_question.quiz_question_option_set.all %}
-  <ul>
-    {% for option in quiz_question.quiz_question_option_set.all %}
-    <li>
-        {{option.Text}}
-      {% if option.IsAnswer %}
-      == Answer
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-{% else %}
-<h4>There are no options for this Question</h4>
-{% endif %}
-<br />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
 
-<a href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
-<br />
-<a href="{% url 'delete_quiz_question' quiz_question.id %}">Delete Question</a>
-<br />
-<a href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
+  <div class="test">
+    <h1>{{quiz_question.Text}}</h1>
+  </div>
+  <h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
+  {% if quiz_question.quiz_question_option_set.all %}
+    <ul>
+      {% for option in quiz_question.quiz_question_option_set.all %}
+        <li>
+            {{option.Text}}
+          {% if option.IsAnswer %}
+            == Answer
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>There are no options for this Question</h2>
+  {% endif %}
+
+  <br>
+
+  <div class="add_option">
+    <a href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
+  </div>
+
+  <br>
+
+
+  <div class="back">
+    <a href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
+  </div>
+
 {% endblock %}
