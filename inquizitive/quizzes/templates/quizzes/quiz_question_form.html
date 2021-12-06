@@ -1,19 +1,16 @@
-{% extends 'quizzes/base.html' %}
+<!-- Create_quiz_question page -->
+<!-- http://localhost:8080/quiz_id/create_quiz_qestion -->
 {% load static %}
-
-{% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_form.css' %}">
-{% endblock %}
 
-{% block content %}
-<!-- Create_quiz_question Page -->
-
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% for form in formset %}
-    {{form.as_p}}
-  {% endfor %}
-  <input type="submit" value="Save">
-</form>
-{% endblock %}
+<h1> Add Question</h1>
+<div class="create_quiz_form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        {% for form in formset %}>
+            {{form.as_p}}
+        {% endfor %}
+        <input type="submit" value="Save">
+    </form> 
+</div>

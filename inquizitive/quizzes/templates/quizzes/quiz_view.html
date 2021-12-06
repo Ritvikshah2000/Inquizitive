@@ -1,15 +1,12 @@
-{% extends 'quizzes/base.html' %}
-{% load static %}
-
-{% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
-{% endblock %}
-
 <!-- Quiz view page -->
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
+
 <h1>{{quiz.Title}}</h1>
 <div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
-<br />
+<br>
+
 
 <h3>Quiz Questions</h3>
 <ul>
@@ -17,12 +14,15 @@
     <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
   {% endfor %}
 </ul>
-<br />
+ 
+
+<br>
 <div class="add_question">
   <a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
 </div>
-<br />
-<a href="{% url 'delete_quiz' quiz.id%}">Delete Quiz</a>
+
+<br>
+
 <div class="back">
   <a href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
 </div>
