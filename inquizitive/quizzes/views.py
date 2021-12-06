@@ -4,10 +4,51 @@ from django.urls import reverse
 from django.views import generic
 from django.template import loader
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
-from django.forms.models import inlineformset_factory
+from django.forms.models import formset_factory
 
 from .models import *
 from .forms import *
+
+# from quizzes import forms
+
+def create_quiz(request):
+    QuizQuestionOptionFormset = formset_factory(QuizQuestionOptionForm, extra=3)
+
+    if request.method == 'POST':
+        quiz_form = QuizForm(request.POST)
+        quiz_question_form = QuizQuestionForm(request.POST)
+        quiz_question_option_form = QuizQuestionOptionFormset(request.POST)
+
+        # print(quiz_form.is_valid())
+        # print(quiz_question_form.is_valid())
+        # print(quiz_question_option_form.is_valid())
+        # if quiz_form.is_valid() and quiz_question_form.is_valid() and quiz_question_option_form.is_valid():
+        quiz = quiz_form.save(commit=False)
+        quiz.save()
+
+        quiz_question = quiz_question_form.save(commit=False)
+        quiz_question.Quiz_ID = quiz
+        quiz_question.save()
+
+        # for form in quiz_question_option_formset:
+        #             if form.is_valid():
+        #                 try:
+        #                     quiz_question_option = form.save(commit=False)
+        #                     quiz_question_option.Quiz_Question_ID = quiz_question
+        #                     quiz_question_option.save()
+        #                 except DatabaseError:
+        #                     messages.error(request, "Database error. Please try again")
+        return render(request, 'quizzes/quiz_genre_list.html', context)
+
+    quiz_form = QuizForm()
+    quiz_question_form = QuizQuestionForm()
+    quiz_question_option_formset = QuizQuestionOptionFormset()
+    
+
+    context = {'quiz_form':quiz_form, 'quiz_question_form':quiz_question_form, 'quiz_question_option_formset':quiz_question_option_formset,}
+
+    return render(request, 'quizzes/quiz_form.html', context)
+
 
 class index(ListView):
     model = Quiz_Genre
@@ -30,9 +71,6 @@ class QuizDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('index')
-
-
-QuizQuestionOptionFormset = inlineformset_factory(Quiz_Question, Quiz_Question_Option, form=QuizQuestionOptionForm, extra=4, can_delete=False)
     
 class QuizQuestionCreateView(CreateView):
     model = Quiz_Question

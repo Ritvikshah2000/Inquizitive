@@ -3,23 +3,31 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
-# class CreateQuizForm(ModelForm):
-#     class Meta:
-#         model=Quiz
-#         fields="__all__"
-
-
-class QuizQuestionForm(forms.Form):
-    class Meta:
-        model = Quiz_Question
-        fields = ('Quiz_ID', 'Text')
-
-
 YES_OR_NO = (
     (True, 'Yes'),
     (False, 'No')
 )
+
+
+class QuizForm(forms.ModelForm):
+    class Meta:
+        model=Quiz
+        fields=('Title', 'Genre')
+        labels = {
+            'Title': ('Title'),
+            'Genre': ('Genre')
+        }
+
+
+class QuizQuestionForm(forms.ModelForm):
+    class Meta:
+        model = Quiz_Question
+        fields = ('Quiz_ID', 'Text')
+        labels = {
+            'Text': ('Question'),
+        }
+
+
 
 class QuizQuestionOptionForm(forms.ModelForm):
     class Meta:
