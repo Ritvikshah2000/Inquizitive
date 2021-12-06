@@ -5,6 +5,8 @@ from django.views import generic
 from django.template import loader
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.forms.models import inlineformset_factory
+from django.contrib.auth.decorators import login_required
+
 
 from .models import *
 from .forms import *
@@ -33,7 +35,7 @@ class QuizDeleteView(DeleteView):
 
 
 QuizQuestionOptionFormset = inlineformset_factory(Quiz_Question, Quiz_Question_Option, form=QuizQuestionOptionForm, extra=4, can_delete=False)
-    
+
 class QuizQuestionCreateView(CreateView):
     model = Quiz_Question
     fields = ('Text',)
@@ -69,7 +71,6 @@ class QuizQuestionDeleteView(DeleteView):
     def get_success_url(self):
         # return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
         return reverse('index')
-
 
 class QuizQuestionOptionCreateView(CreateView):
     model = Quiz_Question_Option
