@@ -1,3 +1,4 @@
+{% extends "quizzes/base.html" %}
 <!-- Question view page -->
 {% block content %}
 
@@ -26,14 +27,13 @@
   <br>
 
   <div class="add_option">
-    <a href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
+    <a class="action-button" href="{% url 'add_question_option' quiz_question.id %}">Add Option</a>
   </div>
 
   <br>
 
-
   <div class="back">
-    <a href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
+    <a class="secondary-button" href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
   </div>
 
 {% endblock %}

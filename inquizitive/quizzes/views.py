@@ -81,13 +81,39 @@ class QuizQuestionOptionCreateView(CreateView):
         form.instance.Quiz_Question_ID = self.Quiz_Question_ID
         form.save()
         form.instance.save()
-        return HttpResponseRedirect(self.get_success_url())
 
-    def get_success_url(self):
-        return reverse('view_quiz_question', kwargs={'pk': self.Quiz_Question_ID.id})
+        done = True
+        if 'add' in self.request.POST:
+            done = False
+
+        return HttpResponseRedirect(self.get_success_url(done))
+
+    def get_success_url(self, done):
+        if done:
+            return reverse('view_quiz_question', kwargs={'pk': self.Quiz_Question_ID.id})
+        else:
+            return reverse('add_question_option', kwargs={'question_id': self.Quiz_Question_ID.id})
 
 
 class QuizDetailView(DetailView):
     model = Quiz
     template_name = "quizzes/quiz_view.html"
 
+
+# def attempt_quiz(request, quiz_id):
+#     quiz = get_object_or_404(Quiz, pk=quiz_id)
+#     try:
+#         selected_choice = question.quiz_question_option_set.get(pk=request.POST['choice'])
+#     except (KeyError, Quiz_Question_Option.DoesNotExist):
+#         # Redisplay the question answering form
+#         return render(request, 'quizzes/answer_question.html', {
+#             'question': question,
+#             'error_message': "You didn't select a choice.",
+#         })
+#     else:
+#         selected_choice.votes += 1
+#         selected_choice.save()
+#         # Always return an HttpResponseRedirect after successfully dealing
+#         # with POST data. This prevents data from being posted twice if a
+#         # user hits the Back button.
+#         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))

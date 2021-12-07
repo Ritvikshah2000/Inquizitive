@@ -1,3 +1,4 @@
+{% extends "quizzes/base.html" %}
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
@@ -20,7 +21,7 @@
 <br>
 
 <div class="back">
-  <a href="/">Back to All Genres</a>
+  <a class="secondary-button" href="/">Back to All Genres</a>
 </div>
 
 {% endblock %}

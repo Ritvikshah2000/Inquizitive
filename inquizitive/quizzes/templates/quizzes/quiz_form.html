@@ -1,3 +1,5 @@
+{% extends "quizzes/base.html" %}
+{% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_form.css' %}">
 
@@ -10,7 +12,10 @@
         <table>
         {{ form.as_table }}
         </table>
-        
-        <button type="submit">Save</button>
+        <br><br>
+        <a class="secondary-button" href="{% url 'index' %}">Cancel</a>
+        <a class="action-button" type="submit">Save</a>
     </form>
 </div>
+
+{% endblock %}

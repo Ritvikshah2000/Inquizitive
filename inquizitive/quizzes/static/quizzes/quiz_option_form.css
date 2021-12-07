@@ -66,12 +66,3 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }
-
-select{
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    overflow: hidden;
-    background-color:  #82caff;
-    position: relative;
-    font-weight:400;
-}

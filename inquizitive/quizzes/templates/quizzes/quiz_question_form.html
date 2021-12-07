@@ -1,5 +1,8 @@
+{% extends "quizzes/base.html" %}
 <!-- Create_quiz_question page -->
 <!-- http://localhost:8080/quiz_id/create_quiz_qestion -->
+{% block content %}
+
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_form.css' %}">
 
@@ -11,6 +14,8 @@
         {% for form in formset %}>
             {{form.as_p}}
         {% endfor %}
-        <input type="submit" value="Save">
+        <input class="action-button" type="submit" value="Save">
     </form> 
 </div>
+
+{% block content %}
