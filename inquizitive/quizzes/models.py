@@ -43,18 +43,21 @@ class Quiz_Question_Option(models.Model):
     Text = models.CharField(max_length=200)
     IsAnswer = models.BooleanField(default=False, choices=YES_OR_NO)
 
-class Quiz_Question_User_Answer(models.Model):
-    User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    Quiz_Question_ID = models.ForeignKey(Quiz_Question, on_delete=models.CASCADE)
-    Quiz_Question_Option_ID = models.ForeignKey(Quiz_Question_Option, on_delete=models.CASCADE)
-    IsCorrect = models.BooleanField(default=False)
-
 class Quiz_User_Attempt(models.Model):
     User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     Quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     Number_Correct = models.IntegerField()
     Time_Taken = models.DurationField()
     DateOfAttempt = models.DateTimeField(auto_now_add=True)
+
+class Quiz_Question_User_Answer(models.Model):
+    User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    # link all user answers to a single quiz attempt - in case of multiple attempts of same quiz
+    Quiz_User_Attempt_ID = models.ForeignKey(Quiz_User_Attempt, on_delete=models.CASCADE)
+    Quiz_Question_ID = models.ForeignKey(Quiz_Question, on_delete=models.CASCADE)
+    Quiz_Question_Option_ID = models.ForeignKey(Quiz_Question_Option, on_delete=models.CASCADE)
+    IsCorrect = models.BooleanField(default=False)
+
 
 
 

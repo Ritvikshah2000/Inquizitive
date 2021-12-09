@@ -42,6 +42,7 @@ class QuizQuestionCreateView(CreateView):
   
     def form_valid(self, form):
         self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['quiz_id'])
+        # form.instance.User_ID = self.request.user
         form.instance.Quiz_ID = self.Quiz_ID
         form.save()
         form.instance.save()
@@ -100,20 +101,45 @@ class QuizDetailView(DetailView):
     template_name = "quizzes/quiz_view.html"
 
 
-# def attempt_quiz(request, quiz_id):
-#     quiz = get_object_or_404(Quiz, pk=quiz_id)
-#     try:
-#         selected_choice = question.quiz_question_option_set.get(pk=request.POST['choice'])
-#     except (KeyError, Quiz_Question_Option.DoesNotExist):
-#         # Redisplay the question answering form
-#         return render(request, 'quizzes/answer_question.html', {
-#             'question': question,
-#             'error_message': "You didn't select a choice.",
-#         })
-#     else:
-#         selected_choice.votes += 1
-#         selected_choice.save()
-#         # Always return an HttpResponseRedirect after successfully dealing
-#         # with POST data. This prevents data from being posted twice if a
-#         # user hits the Back button.
-#         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+def start_quiz(request, quiz_id):
+    quiz_attempt = Quiz_UserAttempt(User_ID = request.User, Quiz_ID = quiz_id)
+
+
+
+def answer_question(request, quiz_id, question_id):
+    quiz = get_object_or_404(Quiz, pk=quiz_id)
+
+    # get ids of all questions in this quiz
+    all_quiz_questions = quiz.quiz_qusetion_set.values_list('id', flat=True)
+
+    current_question_index = all_quiz_questions.index(question_id)
+    # if we find the question id and it's not the last one
+    if(current_question_index and current_question_index < len(all_quiz_questions)-1):
+        # get id of next question in this quiz 
+        next_question = all_quiz_questions[current_question_index + 1]
+    elif(current_question_index == len(all_quiz_questions)-1): 
+        next_question = NULL
+
+    question = get_object_or_404(Quiz_Question, pk=question_id)
+
+    try:
+        selected_choice = question.quiz_question_option_set.get(pk=request.POST['choice'])
+    except (KeyError, Quiz_Question_Option.DoesNotExist):
+        # Redisplay the question answering form
+        return render(request, 'quizzes/answer_question.html', {
+            'question': question,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        is_correct = False
+        correct_options = question.quiz_question_option_set.filter(IsAnswer=1).values_list('id', flat=True)
+        if selected_choice.id in correct_options:
+            is_correct = True
+
+        user_answer = Quiz_Question_User_Answer(User_ID = request.User, Quiz_Question_ID = question_id, Quiz_Question_Option_ID = selected_choice.id, IsCorrect = is_correct)
+
+        if(next_question):
+            return HttpResponseRedirect(reverse('answer_question', args=(next_question,)))
+        else:
+            return HttpResponseRedirect(reverse('quiz_results'))
+            
