@@ -72,6 +72,23 @@ class QuizQuestionDeleteView(DeleteView):
         # return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
         return reverse('index')
 
+
+class QuizQuestionUpdateView(UpdateView):
+    model = Quiz_Question
+    fields = ('Text',)
+    extra_context={'update': True}
+  
+    def form_valid(self, form):
+        self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['pk'])
+        form.instance.Quiz_ID = self.Quiz_ID
+        form.save()
+        form.instance.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
+
+
 class QuizQuestionOptionCreateView(CreateView):
     model = Quiz_Question_Option
     fields = ('Text', 'IsAnswer')

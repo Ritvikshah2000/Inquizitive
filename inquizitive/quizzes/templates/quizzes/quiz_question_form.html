@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<h1> Add Question</h1>
+<h1> {% if update %}Edit{% else %}Add{% endif %} Question</h1>
 <div class="create_quiz_form">
   <form method="post">
     {% csrf_token %}

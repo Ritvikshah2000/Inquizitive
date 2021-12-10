@@ -33,6 +33,11 @@
 <br />
 
 <a class="action-button" href="{% url 'delete_quiz_question' quiz_question.id %}">Delete Question</a>
+<br />
+<br />
+
+<a class="action-button" href="{% url 'update_quiz_question' quiz_question.id %}">Update Question</a>
+<br />
 
 <div class="back">
   <a class="secondary-button" href="{% url 'view_quiz' quiz_question.Quiz_ID.id %}">Back</a>
