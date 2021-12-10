@@ -1,141 +1,146 @@
+
 /* Start of body styling */
 body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  } 
+  margin: 0 auto;
+}
 
 body {
-    background: white url("images/sporcle_placeholder.png") no-repeat;
-    background-size: cover;
+  background: white url("images/sporcle_placeholder.png") no-repeat;
+  background-size: cover;
 }
 /* End of body styling */
 
 
-
 /* Start of header styling */
-h1, h2{
-    text-align: center;
+h1, h2 {
+  text-align: center;
 }
 
 h1 {
-    perspective: 10px;
-    font-size: clamp(10px, 75px, 100px);
+  perspective: 10px;
+  font-size: clamp(10px, 75px, 100px);
 }
 /* End of header styling */
 
 
-
 /* Start of genre list styling */
-.genre_list{
-    margin: 0 auto; /* Centers element*/
-    width: 680px;
+
+.genre_list {
+  position: absolute;
+  left: 30%;
+  display: block;
+  margin: 0 auto; /* Centers element */
+  width: 50%;
 }
 
-.genre_list ul{
-    position:relative;
-    display: inline-block;  
-    list-style: none;
-    width:100%;
-    margin: auto; /* Centers element*/
-    padding: 0;
-  }
+.genre_list ul {
+  position: relative;
+  display: inline-block;
 
-  .genre_list li{
-    width: 200px;
-    height: 100px;
-    list-style: none;
-    text-align: center;
-    margin: 10px; 
-    display: inline-block;
-  }
-
-.genre_list li img{
-    width: 100%;
-    height: 100%;
+  list-style: none;
+  width: 100%;
+  margin: auto; /* Centers element */
+  padding: 0;
 }
 
-.genre_list li a{
-    text-decoration: none;
-    color: black;
+  .genre_list li {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  list-style: none;
+  text-align: center;
+  margin: 16px;
 }
 
-.genre_list li a:hover{
-    color: white;
+.genre_list li img {
+  width: 100%;
+  height: 100%;
+}
+
+.genre_list li a {
+  text-decoration: none;
+  color: black;
+}
+
+.genre_list li a:hover {
+  color: white;
 }
 /* End of genre list styling */
 
 
-
-
-.login-logout[disabled]{
-    margin:0 auto; /* Centers element*/
-    margin-top: 30px;
-    display:block;
-    background-color: white;
-    border-radius: 10%;
-    padding: 15px 30px;
-    text-align: center;
-    font-size: 16px;
-    transition-duration: 0.2s;
+.login-logout[disabled] {
+  margin: 0 auto; /* Centers element */
+  margin-top: 30px;
+  display: block;
+  background-color: white;
+  border-radius: 10%;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.2s;
 }
 
 .login-logout:hover {
-    background-color: rgb(219, 219, 219);
-    color: rgb(0, 255, 21);
-  }
+  background-color: rgb(219, 219, 219);
+  color: rgb(0, 255, 21);
+}
 
-.register[disabled]{
-    margin:0 auto; /* Centers element*/
-    margin-top: 30px;
-    display:block;
-    background-color: white;
-    border-radius: 10%;
-    padding: 15px 30px;
-    text-align: center;
-    font-size: 16px;
-    transition-duration: 0.2s;
+.register[disabled] {
+  margin: 0 auto; /* Centers element */
+  margin-top: 30px;
+  display: block;
+  background-color: white;
+  border-radius: 10%;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.2s;
 }
 
 .register:hover {
-    background-color: rgb(219, 219, 219);
-    color: rgb(0, 255, 21);
-  }
+  background-color: rgb(219, 219, 219);
+  color: rgb(0, 255, 21);
+}
 
+
+#create-quiz {
+  position: absolute;
+  top: 70%;
+  left: 45%;
+}
 
 /* End of button styling */
 
 
-
 /* Start of fading animations */
 .fade-in-title {
-    animation: fadeInTitle 3s;
+  animation: fadeInTitle 2s;
 }
 
-.fade-in-description{
-    animation: fadeInDescription 3s;
+.fade-in-description {
+  animation: fadeInDescription 2s;
 }
 
-.fade-in-content{
-    animation: fadeInContent 3s;
+.fade-in-content {
+  animation: fadeInContent 2s;
 }
 
 @keyframes fadeInTitle {
-    0%   {opacity: 0;}
-    33%  {opacity: 1;}
-    100% {opacity: 1;}
+  0%   {opacity: 0;}
+  33%  {opacity: 1;}
+  100% {opacity: 1;}
 }
 
 @keyframes fadeInDescription {
-    0%   {opacity: 0;}
-    33%  {opacity: 0;}
-    66%  {opacity: 1;}
-    100% {opacity: 1;}
+  0%   {opacity: 0;}
+  33%  {opacity: 0;}
+  66%  {opacity: 1;}
+  100% {opacity: 1;}
 }
 
 @keyframes fadeInContent {
-    0%   {opacity: 0;}
-    66%  {opacity: 0;}
-    100% {opacity: 1;}
+  0%   {opacity: 0;}
+  66%  {opacity: 0;}
+  100% {opacity: 1;}
 }
 /* End of fading animations */
