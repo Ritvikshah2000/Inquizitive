@@ -1,8 +1,11 @@
 {% extends "quizzes/base.html" %}
-{% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_genre_view.css' %}">
+{% endblock %}
+
+{% block content %}
 <h1>Quizzes in {{quiz_genre.Text}} Genre</h1>
 <h2></h2> <!-- I needed this here so the styling updates for some reason. I think it has to do with the if statement-->
 
@@ -17,9 +20,7 @@
   <h2>There are no quizzes in this Genre</h2>
 {% endif %}
 
-
-<br>
-
+<br />
 <div class="back">
   <a class="secondary-button" href="/">Back to All Genres</a>
 </div>

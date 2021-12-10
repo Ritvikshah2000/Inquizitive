@@ -1,21 +1,22 @@
 {% extends "quizzes/base.html" %}
-{% block content %}
 {% load static %}
+
+{% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_form.css' %}">
+{% endblock %}
 
+{% block content %}
 <h2>Create New Quiz</h2>
-
 <div class = "create-new-quiz">
-
-    <form method="post">
-        {% csrf_token %}
-        <table>
-        {{ form.as_table }}
-        </table>
-        <br><br>
-        <a class="secondary-button" href="{% url 'index' %}">Cancel</a>
-        <a class="action-button" type="submit">Save</a>
-    </form>
+  <form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <br /><br />
+    <a class="secondary-button" href="{% url 'index' %}">Cancel</a>
+    <a class="action-button" type="submit">Save</a>
+  </form>
 </div>
 
 {% endblock %}

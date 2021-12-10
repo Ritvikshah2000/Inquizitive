@@ -7,7 +7,6 @@
     {% for quiz in quiz_list %}
       <li>
         <a href="{% url 'view_quiz' quiz.id %}">{{quiz.Title}}</a>
-        
       </li>
     {% endfor %}
   </ul>
@@ -15,5 +14,4 @@
     <p>There are no quizzes.</p>
   {% endif %}
   <a href="{% url 'create_quiz' %}">Create Quiz</a>
-
 {% endblock %}

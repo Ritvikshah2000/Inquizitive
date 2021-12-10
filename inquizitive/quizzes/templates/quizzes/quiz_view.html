@@ -6,7 +6,7 @@
 
 <h1>{{quiz.Title}}</h1>
 <div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
-<br>
+<br />
 
 
 <h3>Quiz Questions</h3>
@@ -16,19 +16,18 @@
     <ul>
     {% for question_option in question.quiz_question_option_set.all %}
       <li>{{question_option.Text}}</li>
-      <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a>
+      <!-- <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a> -->
     {% endfor %}
   </ul>
   {% endfor %}
 </ol>
  
-
-<br>
+<br />
 <div class="add_question">
   <a class="action-button" href="{% url 'create_question' quiz.id %}">Add Another Question</a>
 </div>
 
-<br>
+<br />
 
 <div class="back">
   <a class="secondary-button" href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
