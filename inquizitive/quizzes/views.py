@@ -6,7 +6,7 @@ from django.template import loader
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.forms.models import inlineformset_factory
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 
 from .models import *
 from .forms import *
@@ -24,7 +24,16 @@ class QuizCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('create_question', kwargs={'quiz_id': self.object.id})
-
+    
+    def form_valid(self, form):
+        quiz = form.save(commit=False)
+        quiz.User_ID = User.objects.get(pk=(self.request.user.pk))
+        quiz.save()
+        return HttpResponseRedirect(reverse('create_question', args=(quiz.id,)))
+        # form.instance.User_ID = User.objects.get(pk=self.request.user.pk)
+        # form.save()
+        # form.instance.save()
+        # return reverse('create_question', kwargs={'quiz_id': self.object.id})
 
 class QuizDeleteView(DeleteView):
     model = Quiz
@@ -42,14 +51,16 @@ class QuizQuestionCreateView(CreateView):
   
     def form_valid(self, form):
         self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['quiz_id'])
-        # form.instance.User_ID = self.request.user
+        form.instance.User_ID = self.request.user
         form.instance.Quiz_ID = self.Quiz_ID
+        form.instance.Number = 1
         form.save()
         form.instance.save()
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
+        # TODO: redirect to QuizQuestionOptionCreateView
+        return reverse('view_your_quiz', kwargs={'pk': self.Quiz_ID.id})
 
 
 class QuizQuestionDetailView(DetailView):
@@ -100,6 +111,9 @@ class QuizDetailView(DetailView):
     model = Quiz
     template_name = "quizzes/quiz_view.html"
 
+class UserQuizDetailView(DetailView):
+    model = Quiz
+    template_name = "quizzes/quiz_user_view.html"
 
 def start_quiz(request, quiz_id):
     quiz_attempt = Quiz_UserAttempt(User_ID = request.User, Quiz_ID = quiz_id)
@@ -110,7 +124,7 @@ def answer_question(request, quiz_id, question_id):
     quiz = get_object_or_404(Quiz, pk=quiz_id)
 
     # get ids of all questions in this quiz
-    all_quiz_questions = quiz.quiz_qusetion_set.values_list('id', flat=True)
+    all_quiz_questions = list(quiz.quiz_question_set.values_list('id', flat=True))
 
     current_question_index = all_quiz_questions.index(question_id)
     # if we find the question id and it's not the last one

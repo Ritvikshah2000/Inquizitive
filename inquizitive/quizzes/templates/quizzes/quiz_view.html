@@ -8,27 +8,14 @@
 <div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
 <br>
 
-
-<h3>Quiz Questions</h3>
-<ol>
-  {% for question in quiz.quiz_question_set.all %}
-    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
-    <ul>
-    {% for question_option in question.quiz_question_option_set.all %}
-      <li>{{question_option.Text}}</li>
-      <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a>
-    {% endfor %}
-  </ul>
-  {% endfor %}
-</ol>
- 
+<div id="number_of_questions"><h3>Number of Questions: {{quiz.quiz_question_set.count}}</h3></div>
 
 <br>
-<div class="add_question">
-  <a class="action-button" href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+
+<div class="start_quiz">
+  <a class="action-button" href="{% url 'answer_question' quiz_id=quiz.id question_id=quiz.quiz_question_set.first.id %}">Take Quiz</a>
 </div>
 
-<br>
 
 <div class="back">
   <a class="secondary-button" href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
