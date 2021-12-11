@@ -17,4 +17,5 @@ urlpatterns = [
     path('create_quiz_question/<int:quiz_id>', views.QuizQuestionCreateView.as_view(), name='create_question'),
     path('add_question_option/<int:question_id>', views.QuizQuestionOptionCreateView.as_view(), name='add_question_option'),
     path('update_question_option/<int:pk>', views.QuizQuestionOptionUpdateView.as_view(), name='update_question_option'),
+    path('delete_question_option/<int:pk>', views.QuizQuestionOptionDeleteView.as_view(), name='delete_question_option'),
 ]

@@ -20,6 +20,7 @@
           == Answer
         {% endif %}
         <a class="action-button" href="{% url 'update_question_option' option.id %}">Update Option</a>
+        <a class="action-button" href="{% url 'delete_question_option' option.id %}">Delete Option</a>
       </li>
     {% endfor %}
   </ul>
