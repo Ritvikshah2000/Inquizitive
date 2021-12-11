@@ -47,3 +47,11 @@ select {
 .home-link:hover {
   color: #fff;
 }
+
+a {
+  color: #b63607;
+}
+
+a:hover {
+  color: #fff;
+}
