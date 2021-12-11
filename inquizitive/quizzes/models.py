@@ -56,5 +56,3 @@ class Quiz_User_Attempt(models.Model):
     Time_Taken = models.DurationField()
     DateOfAttempt = models.DateTimeField(auto_now_add=True)
 
-
-

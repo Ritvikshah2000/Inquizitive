@@ -112,6 +112,30 @@ class QuizQuestionOptionCreateView(CreateView):
             return reverse('add_question_option', kwargs={'question_id': self.Quiz_Question_ID.id})
 
 
+class QuizQuestionOptionUpdateView(UpdateView):
+    model = Quiz_Question_Option
+    fields = ('Text', 'IsAnswer')
+    extra_context={'update': True}
+ 
+    def form_valid(self, form):
+        self.Quiz_Question_ID = get_object_or_404(Quiz_Question, id=getattr(self.get_object(), 'Quiz_Question_ID').id)
+        form.instance.Quiz_Question_ID = self.Quiz_Question_ID
+        form.save()
+        form.instance.save()
+
+        done = True
+        if 'add' in self.request.POST:
+            done = False
+
+        return HttpResponseRedirect(self.get_success_url(done))
+
+    def get_success_url(self, done):
+        if done:
+            return reverse('view_quiz_question', kwargs={'pk': self.Quiz_Question_ID.id})
+        else:
+            return reverse('add_question_option', kwargs={'question_id': self.Quiz_Question_ID.id})
+
+
 class QuizDetailView(DetailView):
     model = Quiz
     template_name = "quizzes/quiz_view.html"

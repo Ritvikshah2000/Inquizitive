@@ -19,6 +19,7 @@
         {% if option.IsAnswer %}
           == Answer
         {% endif %}
+        <a class="action-button" href="{% url 'update_question_option' option.id %}">Update Option</a>
       </li>
     {% endfor %}
   </ul>

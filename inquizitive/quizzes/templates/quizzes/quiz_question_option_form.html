@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>Add Option:</h1>
+<h1>{% if update %}Edit{% else %}Add{% endif %} Option:</h1>
 <div class="create_quiz_option_form">
   <form method="post">
     {% csrf_token %}
@@ -20,7 +20,9 @@
       </div>
     {% endfor %}
     <input class="secondary-button" type="submit" name="done" value="Save">
-    <input class="action-button" type="submit" name="add" value="Add Another Option">
+    {% if not update %}
+      <input class="action-button" type="submit" name="add" value="Add Another Option">
+    {% endif %}
   </form>
 </div>
 {% endblock %}
