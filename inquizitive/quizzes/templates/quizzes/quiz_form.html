@@ -1,10 +1,12 @@
 {% extends "quizzes/base.html" %}
-{% block content %}
 {% load static %}
+
+{% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_form.css' %}">
+{% endblock %}
 
+{% block content %}
 <h2>Create New Quiz</h2>
-
 <div class = "create-new-quiz">
 
     <form method="post">

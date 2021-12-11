@@ -35,6 +35,8 @@ class Quiz_Question_Option(models.Model):
     Quiz_Question_ID = models.ForeignKey(Quiz_Question, on_delete=models.CASCADE)
     Text = models.CharField(max_length=200)
     IsAnswer = models.BooleanField(default=False, choices=YES_OR_NO)
+    def __str__(self):
+        return self.Text
 
 class Quiz_User_Attempt(models.Model):
     User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)

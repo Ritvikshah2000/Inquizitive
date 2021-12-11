@@ -72,17 +72,25 @@ class QuizQuestionDeleteView(DeleteView):
     model = Quiz_Question
     template_name = "quizzes/confirm_delete.html"
 
-    # TODO: Set up redirect to quiz instead of index
-    # def form_valid(self, form):
-    #     self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['object'].kwargs['quiz_id'])
-    #     form.instance.Quiz_ID = self.Quiz_ID
-    #     form.save()
-    #     form.instance.save()
-    #     return HttpResponseRedirect(self.get_success_url())
+    def get_success_url(self):
+        return reverse('view_quiz', kwargs={'pk': getattr(self.get_object(), 'Quiz_ID').id})
+
+
+class QuizQuestionUpdateView(UpdateView):
+    model = Quiz_Question
+    fields = ('Text',)
+    extra_context={'update': True}
+  
+    def form_valid(self, form):
+        self.Quiz_ID = get_object_or_404(Quiz, id=self.kwargs['pk'])
+        form.instance.Quiz_ID = self.Quiz_ID
+        form.save()
+        form.instance.save()
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        # return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
-        return reverse('index')
+        return reverse('view_quiz', kwargs={'pk': self.Quiz_ID.id})
+
 
 class QuizQuestionOptionCreateView(CreateView):
     model = Quiz_Question_Option
@@ -105,6 +113,39 @@ class QuizQuestionOptionCreateView(CreateView):
             return reverse('view_quiz_question', kwargs={'pk': self.Quiz_Question_ID.id})
         else:
             return reverse('add_question_option', kwargs={'question_id': self.Quiz_Question_ID.id})
+
+
+class QuizQuestionOptionUpdateView(UpdateView):
+    model = Quiz_Question_Option
+    fields = ('Text', 'IsAnswer')
+    extra_context={'update': True}
+ 
+    def form_valid(self, form):
+        self.Quiz_Question_ID = get_object_or_404(Quiz_Question, id=getattr(self.get_object(), 'Quiz_Question_ID').id)
+        form.instance.Quiz_Question_ID = self.Quiz_Question_ID
+        form.save()
+        form.instance.save()
+
+        done = True
+        if 'add' in self.request.POST:
+            done = False
+
+        return HttpResponseRedirect(self.get_success_url(done))
+
+    def get_success_url(self, done):
+        if done:
+            return reverse('view_quiz_question', kwargs={'pk': self.Quiz_Question_ID.id})
+        else:
+            return reverse('add_question_option', kwargs={'question_id': self.Quiz_Question_ID.id})
+
+
+class QuizQuestionOptionDeleteView(DeleteView):
+    model = Quiz_Question_Option
+    template_name = "quizzes/confirm_delete.html"
+
+    def get_success_url(self):
+        return reverse('view_quiz_question', kwargs={'pk': getattr(self.get_object(), 'Quiz_Question_ID').id})
+        # return reverse('index')
 
 
 class QuizDetailView(DetailView):

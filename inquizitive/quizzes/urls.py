@@ -23,5 +23,6 @@ urlpatterns = [
     # path('<int:question_id>/add_question_option', views.QuizQuestionOptionCreateView.as_view(), name='add_question_option'),
     path('<int:quiz_id>/answer_question/<int:question_id>', login_required(views.answer_question), name='answer_question'),
     # path('<int:quiz_id>/answer_question/<int:question_id>', views.answer_question, name='answer_question'),
+    path('update_question_option/<int:pk>', login_required(views.QuizQuestionOptionUpdateView.as_view()), name='update_question_option'),
+    path('delete_question_option/<int:pk>', login_required(views.QuizQuestionOptionDeleteView.as_view()), name='delete_question_option'),
 
-]
