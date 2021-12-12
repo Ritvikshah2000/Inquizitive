@@ -2,6 +2,7 @@ from django.db import models
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
+from datetime import timedelta
 
 
 YES_OR_NO = (
@@ -41,9 +42,9 @@ class Quiz_Question_Option(models.Model):
 class Quiz_User_Attempt(models.Model):
     User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     Quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    Number_Correct = models.IntegerField()
-    Time_Taken = models.DurationField()
-    DateOfAttempt = models.DateTimeField(auto_now_add=True)
+    Number_Correct = models.IntegerField(default=0)
+    Time_Taken = models.DurationField(default=timedelta(minutes=0))
+    DateOfAttempt = models.DateField(auto_now=True)
 
 class Quiz_Question_User_Answer(models.Model):
     User_ID = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
