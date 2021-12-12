@@ -27,13 +27,8 @@ h2 { /* No quizzes in genre */
 
 
 /* Start of quiz list styling */
-<<<<<<< HEAD
-li{
-  font-size: 16px;
-=======
 li {
   font-size: 25px;
->>>>>>> abhattha-dev
   padding-bottom: 15px;
 }
 

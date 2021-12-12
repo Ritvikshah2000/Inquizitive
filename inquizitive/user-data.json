@@ -1,0 +1,24 @@
+[
+    {
+      "model": "quizzes.Quiz_User_Attempt",
+      "pk": 1,
+      "fields": {
+        "User_ID": "1",
+        "Quiz_ID": "1",
+        "Number_Correct": "10",
+        "Time_Taken": "60000",
+        "DateOfAttempt": "2001-12-1"
+      }
+    },
+      {
+        "model": "auth.User",
+        "pk": 1,
+        "fields": {
+          "username": "john",
+          "email": "john@gmail.com",
+          "password": "hithere123"
+        }
+      }
+]
+
+  
