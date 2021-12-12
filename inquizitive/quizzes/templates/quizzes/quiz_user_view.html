@@ -1,0 +1,32 @@
+{% extends "quizzes/base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
+
+<h1>{{quiz.Title}}</h1>
+<div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
+<br>
+
+<div id="number_of_questions"><h3>Number of Questions: {{quiz.quiz_question_set.count}}</h3></div>
+
+<h3>Quiz Questions</h3>
+<ol>
+  {% for question in quiz.quiz_question_set.all %}
+    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
+    <ul>
+    {% for question_option in question.quiz_question_option_set.all %}
+      <li>{{question_option.Text}}</li>
+    {% endfor %}
+    <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a>
+  </ul>
+  {% endfor %}
+</ol>
+ 
+
+<br>
+<div class="add_question">
+  <a class="action-button" href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+</div>
+
+{% endblock %}

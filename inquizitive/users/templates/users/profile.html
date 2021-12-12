@@ -1,3 +1,5 @@
+{% extends "users/base.html" %}
+
 {% load crispy_forms_tags %}
 
 <heading>
@@ -28,9 +30,17 @@
             {{ p_form|crispy}}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update Profile</button>
+            <button class="action-button" type="submit">Update Profile</button>
             <p></p>
-            <a href="{% url 'index' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Inquizitive Home Page</a>
+        </div>
+        <br><br>
+        <div>
+          <h3>Your Quizzes</h3>
+          <ul>
+            {% for quiz in user.quiz_set.all %}
+            <li><a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}}</a></li>
+            {% endfor %}
+        </ul>
         </div>
     </form>
     </div>

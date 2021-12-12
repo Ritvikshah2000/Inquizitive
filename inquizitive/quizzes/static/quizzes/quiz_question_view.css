@@ -12,22 +12,19 @@ body {
 /* End of body styling */
 
 
-
-
 /* Start of header styling */
-h1{
+h1 {
   padding-top: 20px;
   text-align: center;
   font-size: 55px;
 }
 
-h2{
+h2 {
   font-size: 20px;
   padding-top: 15px;
   padding-left: 15px;
 }
 /* End of header styling */
-
 
 
 /* Start of add option styling */
@@ -38,31 +35,29 @@ h2{
 /* End of add option */
 
 
-/* Start of option list styling*/
-ul{
+/* Start of option list styling */
+ul {
   font-size: 20px;
 }
 
-li{
+li {
   padding-bottom: 10px;
 }
-/* End of option list styling*/
+/* End of option list styling */
 
 /* Start of link styling */
-a{
+a {
   color: black;
 }
 
-a:hover{
+a:hover {
   color: white;
 }
 /* End of link styling */
 
 
-
-
 /* Start of back button styling */
-.back{
+.back {
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;

@@ -1,3 +1,4 @@
+{% extends "quizzes/base.html" %}
 <!-- Quiz view page -->
 {% block content %}
 {% load static %}
@@ -5,26 +6,19 @@
 
 <h1>{{quiz.Title}}</h1>
 <div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
-<br>
+<br />
 
-
-<h3>Quiz Questions</h3>
-<ul>
-  {% for question in quiz.quiz_question_set.all %}
-    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
-  {% endfor %}
-</ul>
- 
+<div id="number_of_questions"><h3>Number of Questions: {{quiz.quiz_question_set.count}}</h3></div>
 
 <br>
-<div class="add_question">
-  <a href="{% url 'create_question' quiz.id %}">Add Another Question</a>
+
+<div class="start_quiz">
+  <a class="action-button" href="{% url 'answer_question' quiz_id=quiz.id question_id=quiz.quiz_question_set.first.id %}">Take Quiz</a>
 </div>
 
-<br>
 
 <div class="back">
-  <a href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
+  <a class="secondary-button" href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>
 </div>
 
 {% endblock %}

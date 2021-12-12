@@ -1,18 +1,28 @@
+{% extends "quizzes/base.html" %}
 <!-- Question Creation Page-->
 <!-- http://localhost:8080/2/add_question_option -->
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_option_form.css' %}">
-<h1>Add Option:</h1>
-<div class="create_quiz_option_form">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
 
-        {% for form in formset %}
-            <div>
-            {{form.as_p}}
-            </div>
-        {% endfor %}
-        <input type="submit" value="Save">
-    </form>
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_option_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>{% if update %}Edit{% else %}Add{% endif %} Option:</h1>
+<div class="create_quiz_option_form">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% for form in formset %}
+      <div>
+      {{form.as_p}}
+      </div>
+    {% endfor %}
+    <button class="secondary-button" type="submit" name="done">Save</button>
+    {% if not update %}
+    <button class="action-button" type="submit" name="add">Add Another Option</button>
+    {% endif %}
+  </form>
 </div>
+{% endblock %}

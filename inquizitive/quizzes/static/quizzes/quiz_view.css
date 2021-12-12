@@ -12,8 +12,6 @@ body {
 /* End of body styling */
 
 
-
-
 /* Start of header styling */
 h1 {
   padding-top: 20px;
@@ -21,7 +19,7 @@ h1 {
   font-size: 55px;
 }
 
-.genre_name{
+.genre_name {
   text-align: center;
   font-size: 40px;
 }
@@ -33,12 +31,11 @@ h3 {
 
 
 /* Start of question list styling */
-li{
+li {
   font-size: 18px;
   padding-bottom: 10px;
 }
 /* End of question list styling */
-
 
 
 /* Start of add question button styling */
@@ -48,22 +45,19 @@ li{
 /* End of add question button styling */
 
 
-
 /* Start of link styling */
-a{
+a {
   color: black;
 }
 
-a:hover{
+a:hover {
   color: white;
 }
 /* End of link styling */
 
 
-
-
 /* Start of back button styling */
-.back{
+.back {
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
