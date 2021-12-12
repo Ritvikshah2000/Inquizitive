@@ -45,8 +45,15 @@
             {% for quiz in user.quiz_set.all %}
             <li><a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}}</a></li>
             {% endfor %}
+            {% for attempt in user.quiz_user_attempt.all %}
+              <li>{{attempt.Number_correct}}</li>
+            {% endfor %}            
         </ul>
         </div>
     </form>
     </div>
 {% endblock content %}
+
+for attempt in user.quiz_user_attempt.all
+<li>attempt.Quiz_ID.Title</li>
+endfor
