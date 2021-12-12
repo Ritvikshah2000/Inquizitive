@@ -42,12 +42,26 @@
         <div>
           <h3>Your Quizzes</h3>
           <ul>
+            <b>Quiz Name | Created | Last Modified</b>
             {% for quiz in user.quiz_set.all %}
-            <li><a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}}</a></li>
-            {% endfor %}
-            {% for attempt in user.quiz_user_attempt.all %}
-              <li>{{attempt.Number_correct}}</li>
-            {% endfor %}            
+            <br>
+              --><a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}} | {{quiz.DateCreated}} | {{quiz.LastModified}}</a>
+            {% endfor %}       
+        </ul>
+        <h3>Your Quiz Attempts</h3>
+        <ul>
+            {% for attempt in user.quiz_user_attempt_set.all %}
+              <b>Quiz: {{attempt.Quiz_ID}}</b>
+              <br>
+              --> Number of correct answers: {{attempt.Number_Correct}}
+              <br>
+              --> Time Taken: {{attempt.Time_Taken}}
+              <br>
+              --> Date of Attempt: {{attempt.DateOfAttempt}}
+              <p></p>
+              <----------------------------------------------------------------->
+              <p></p>
+            {% endfor %}        
         </ul>
         </div>
     </form>
