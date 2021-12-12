@@ -1,3 +1,10 @@
+/* Start of body styling */
+body {
+  background: white url("images/sporcle_placeholder.png") no-repeat;
+  background-size: cover;
+}
+/* End of body styling */
+
 
 /* Start of button styling */
 .action-button, .secondary-button {
