@@ -1,10 +1,32 @@
-.content-section{
+
+
+h2{
+  margin-top: 50px;
   text-align: center;
-  padding-left: 20px;
 }
 
 form{
   width: 30%;
   margin: 0 auto;
   padding-bottom: 30px;
+}
+.content-section{
+  text-align: center;
+  padding-left: 20px;
+  margin-top: 80px;
+}
+
+.form-group{
+  margin-top: 10px;
+}
+
+.border-bottom{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  font-size: 50px;
+}
+
+.border-top{
+  text-align: center;
+  font-size: 20px;
 }
