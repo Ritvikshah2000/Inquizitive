@@ -59,6 +59,8 @@ h4{
   display: inline-block;
   flex: 0 0 32%;              /* don't grow, don't shrink, width */
   margin-bottom: 5px;
+  min-width: 500px;
+  /*padding-right: 200px;*/
   /*border-style: dashed;
   border-color: rgb(255, 94, 0);*/
 }
