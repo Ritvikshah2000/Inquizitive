@@ -26,14 +26,20 @@ h4{
 /* Start of question list styling */
 
 .grid {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   /*border-style: solid;
   border-color: white;*/
 }
 
-.grid ul{
+.options_list{
   margin-bottom: 50px;
+}
+
+.questions_list{
+  white-space: nowrap;
+  padding-bottom: 10px;
 }
 
 .inner_cell {
@@ -53,6 +59,8 @@ h4{
   display: inline-block;
   flex: 0 0 32%;              /* don't grow, don't shrink, width */
   margin-bottom: 5px;
+  /*border-style: dashed;
+  border-color: rgb(255, 94, 0);*/
 }
 
 
@@ -76,10 +84,9 @@ h4{
   text-align: center;
 }
 
-.add_option {
-  vertical-align: text-bottom; /* Doesn't do anything */
+.add_option{
+  white-space: nowrap;
 }
-
 
 .add_question {
   text-align: center;
