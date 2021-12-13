@@ -1,16 +1,12 @@
-/* Start of body styling */
-body, html {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+.content{
+  text-align: center;
 }
 
-body {
-  background: white url("images/sporcle_placeholder.png") no-repeat;
-  background-size: cover;
+ul {
+  font-size: 20px;
+  display: inline-block;
+  text-align: left;
 }
-/* End of body styling */
-
 
 /* Start of header styling */
 h1 {

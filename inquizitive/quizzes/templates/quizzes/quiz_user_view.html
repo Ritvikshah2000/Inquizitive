@@ -5,24 +5,36 @@
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
 
 <h1>{{quiz.Title}}</h1>
-<div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
+<h2>Quiz Genre: {{quiz.Genre}}</h2>
 <br>
 
 <div id="number_of_questions"><h3>Number of Questions: {{quiz.quiz_question_set.count}}</h3></div>
 
-<h3>Quiz Questions</h3>
-<ol>
-  {% for question in quiz.quiz_question_set.all %}
-    <li><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
-    <ul>
-    {% for question_option in question.quiz_question_option_set.all %}
-      <li>{{question_option.Text}}</li>
+<h4>Quiz Questions:</h4>
+
+<div class="grid">
+  <ol>
+    {% for question in quiz.quiz_question_set.all %}
+
+      <div class="outer_cell">
+        <li class="questions_list"><a href="{% url 'view_quiz_question' question.id %}">{{question.Text}}</a></li>
+        <ul class="options_list">
+          <div class="grid">
+            {% for question_option in question.quiz_question_option_set.all %}
+              <li class="inner_cell">{{question_option.Text}}</li>
+            {% endfor %}
+          </div>
+          <div class="add_option">
+            <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a>
+          </div>
+        </ul>
+      </div>
+
     {% endfor %}
-    <a class="action-button" href="{% url 'add_question_option' question.id %}">Add Question Option</a>
-  </ul>
-  {% endfor %}
-</ol>
- 
+  </ol>
+</div>
+
+
 
 <br>
 <div class="add_question">
