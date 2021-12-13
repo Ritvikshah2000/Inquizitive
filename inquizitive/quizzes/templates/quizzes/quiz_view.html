@@ -5,17 +5,21 @@
 <link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_view.css' %}">
 
 <h1>{{quiz.Title}}</h1>
-<div class="genre_name">Quiz Genre: {{quiz.Genre}}</div>
+
+<h2>Quiz Genre: {{quiz.Genre}}</h2>
+
 <br />
 
-<div id="number_of_questions"><h3>Number of Questions: {{quiz.quiz_question_set.count}}</h3></div>
+<div id="content">
+  <div id="number_of_questions"> <h3>Number of Questions: {{quiz.quiz_question_set.count}} </h3></div>
 
-<br>
+  <br>
 
-<div class="start_quiz">
-  <a class="action-button" href="{% url 'answer_question' quiz_id=quiz.id question_id=quiz.quiz_question_set.first.id %}">Take Quiz</a>
+  <div class="start_quiz">
+    <a class="action-button" href="{% url 'answer_question' quiz_id=quiz.id question_id=quiz.quiz_question_set.first.id %}">Take Quiz</a>
+  </div>
+
 </div>
-
 
 <div class="back">
   <a class="secondary-button" href="{% url 'view_genre' quiz.Genre.id%}">Back to Quizzes</a>

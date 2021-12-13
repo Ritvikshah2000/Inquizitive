@@ -1,0 +1,30 @@
+.content-section{
+  padding-left: 20px;
+}
+
+.profile_content{
+  display: inline-flex;
+}
+
+.col{
+  flex:1;
+}
+
+.rounded-circle-account-img{
+  max-width: 10%;
+  max-height: 10%;
+
+  min-width: 5%;
+  min-width: 5%;
+}
+
+.media{
+  display: flex;
+  flex-direction: row;
+}
+
+.media-body{
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+}

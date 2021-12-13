@@ -1,17 +1,3 @@
-/* Start of body styling */
-body, html {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-body {
-  background: white url("images/sporcle_placeholder.png") no-repeat;
-  background-size: cover;
-}
-/* End of body styling */
-
-
 /* Start of header styling */
 h1 {
   padding-top: 20px;
@@ -27,6 +13,7 @@ h2 {
 /* End of header styling */
 
 
+
 /* Start of add option styling */
 .add_option {
   margin-left: 15px;
@@ -34,16 +21,23 @@ h2 {
 }
 /* End of add option */
 
+.content{
+  text-align: center;
+}
 
 /* Start of option list styling */
 ul {
   font-size: 20px;
+  display: inline-block;
+  text-align: left;
 }
 
 li {
   padding-bottom: 10px;
 }
 /* End of option list styling */
+
+
 
 /* Start of link styling */
 a {
@@ -55,6 +49,9 @@ a:hover {
 }
 /* End of link styling */
 
+.buttons{
+  text-align: center;
+}
 
 /* Start of back button styling */
 .back {
