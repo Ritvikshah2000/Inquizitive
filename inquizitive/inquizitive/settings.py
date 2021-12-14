@@ -24,10 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+# DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = True
 
 ALLOWED_HOSTS = ['app', 'localhost', '0.0.0.0', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8080']
 
 # Application definition
 
