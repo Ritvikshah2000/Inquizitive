@@ -2,6 +2,7 @@
 body {
   background: white url("images/sporcle_placeholder.png") no-repeat;
   background-size: cover;
+  overflow: scroll;
 }
 /* End of body styling */
 

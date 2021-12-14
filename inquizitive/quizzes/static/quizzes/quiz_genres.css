@@ -12,12 +12,19 @@ h1 {
 
 /* Start of genre list styling */
 
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: auto;
+  /*border-style: dashed;*/
+}
+
 .genre_list {
-  position: absolute;
-  left: 31.5%;
   display: block;
   margin: 0 auto; /* Centers element */
-  width: 40%;
+  max-width: 720px;
+  min-width: 10vw;
 }
 
 .genre_list ul {
@@ -28,6 +35,8 @@ h1 {
   width: 100%;
   margin: auto; /* Centers element */
   padding: 0;
+  /*border-style: solid;
+  border-color: white;*/
 }
 
 .genre_list li {
@@ -37,6 +46,7 @@ h1 {
   list-style: none;
   text-align: center;
   margin: 16px;
+  /*border-style: solid;*/
 }
 
 .genre_list li img {
@@ -91,9 +101,12 @@ h1 {
 
 
 #create-quiz {
-  position: absolute;
-  top: 70%;
-  left: 45%;
+  position: fixed;
+  margin: 10px auto;
+  width: 180px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /* End of button styling */
