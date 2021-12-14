@@ -22,7 +22,7 @@
               <a href="{% url 'view_genre' genre.id %}">{{genre.Text}}
               <!-- Will be replaced with individual images of each genre based on their id-->
               <!--<img src="static/quizzes/images/genreimages/placeholder_image.png" /> -->
-              <img src="{% static '/quizzes/images/genreimages/'%}{{genre.Text}}.jpg"
+              <img src="{% static '/quizzes/images/genreimages/'%}{{genre.Text}}.png"
               </a>
             </li>
           {% endfor %}
