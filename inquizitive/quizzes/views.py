@@ -190,7 +190,7 @@ def answer_question(request, quiz_id, question_id):
         # Redisplay the question answering form
         return render(request, 'quizzes/answer_question.html', {
             'question': question,
-            'error_message': "You didn't select a choice.",
+            'error_message': "Select a choice.",
         })
     else:
         is_correct = False
