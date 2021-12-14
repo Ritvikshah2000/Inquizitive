@@ -1,11 +1,6 @@
+
 .content{
   text-align: center;
-}
-
-ul {
-  font-size: 20px;
-  display: inline-block;
-  text-align: left;
 }
 
 /* Start of header styling */
@@ -23,10 +18,16 @@ h2 { /* No quizzes in genre */
 
 
 /* Start of quiz list styling */
-li {
+.content ul {     /* .content required so it doesn't edit navbar buttons*/
+  font-size: 20px;
+  display: inline-block;
+  text-align: left;
+}
+
+.content li {
   font-size: 25px;
   padding-bottom: 15px;
-}
+}*/
 
 /* End of quiz list styling */
 
