@@ -44,14 +44,17 @@
           <br><br>
           <div class="col your_quizzes">
             <h3>Your Quizzes</h3>
+            {% if user.quiz_set.all %} 
             <ul>
-              <b>Quiz Name | Created | Last Modified</b>
+              <b>Quiz Name  |  Created  |  Last Modified</b>
               {% for quiz in user.quiz_set.all %}
-              <br>
-                --><a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}} | {{quiz.DateCreated}} | {{quiz.LastModified}}</a>
+                <br>
+                --> <a href="{% url 'view_your_quiz' quiz.id %}">{{quiz.Title}} | {{quiz.DateCreated}} | {{quiz.LastModified}}</a>
               {% endfor %}       
             </ul>
-
+            {% else %}
+            <div>You have not created any quizzes.</div>
+            {% endif %}
             <h3>Your Quiz Attempts</h3>
 
             <ul>
@@ -76,7 +79,3 @@
 
     </div>
 {% endblock content %}
-
-for attempt in user.quiz_user_attempt.all
-<li>attempt.Quiz_ID.Title</li>
-endfor
