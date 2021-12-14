@@ -1,19 +1,26 @@
 # Inquizitive
 
-## Development Server:
-Run: "docker-compose up --build" <br />
-Visit: "localhost:8080" <br />
-Run: "docker-compose down" <br /> 
+
+## Getting Started:
+1. Follow "Clean Docker Instance" steps
+2. Follow "Production Server" steps
+3. Follow "Interacting with Application" steps
+
+## Clean Docker Instance
+Run: "docker system prune" <br />
+Run: "docker volume prune" <br />
+Run: "docker network prune" <br />
 
 ## Production Server:
 Run: "docker-compose -f docker-compose.prod.yml up --build" <br />
 Visit: "localhost:8080" <br />
 Run: "docker-compose down" <br />
 
-## Clean Docker Instance
-Run: "docker system prune" <br />
-Run: "docker volume prune" <br />
-Run: "docker network prune" <br />
+## Development Server (Optional):
+Run: "docker-compose up --build" <br />
+Visit: "localhost:8080" <br />
+Run: "docker-compose down" <br /> 
+
 
 ## Interacting with Application
 To explore all the features of our website, we suggest you follow these simple steps:
@@ -23,4 +30,3 @@ To explore all the features of our website, we suggest you follow these simple s
 4. Change your profile picture or profile details via the profile page.
 5. View your quizzes and edit them via your profile.
 6. View statistics about your previous quiz attempts on your profile.
-
