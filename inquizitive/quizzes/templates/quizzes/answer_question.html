@@ -1,7 +1,7 @@
 {% extends "quizzes/base.html" %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_answer_view.css' %}">
 <h2>Answer Question</h2>
 
 <form action="{% url 'answer_question' quiz_id=question.Quiz_ID.id question_id=question.id %}" method="post">
@@ -10,10 +10,14 @@
        <h3>{{ question.Text }}</h3>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         {% for quiz_question_option in question.quiz_question_option_set.all %}
-            <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ quiz_question_option.id }}">
-            <label for="option{{ forloop.counter }}">{{ quiz_question_option.Text }}</label><br>
+            <div class="answer">
+                <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ quiz_question_option.id }}">
+                <label for="option{{ forloop.counter }}">{{ quiz_question_option.Text }}</label><br>
+            </div>
         {% endfor %}
     </fieldset>
-    <button class="action-button" type="submit">Continue</button>
+    <div class="continue">
+        <button class="action-button" type="submit">Continue</button>
+    </div>
     </form>
 {% endblock %}

@@ -1,0 +1,44 @@
+/* Start of header styling */
+h2{
+  text-align: center;
+  font-size: 40px;
+}
+
+h3{
+  text-align: center;
+  font-size: 28px
+}
+
+
+/* Start of error message styling */
+p{
+  margin-top: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+
+/* Start of answer list styling */
+.answer{
+  text-align: center;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+
+
+/* Start of continue button styling */
+.continue {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+
+  /* Place at bottom */
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
