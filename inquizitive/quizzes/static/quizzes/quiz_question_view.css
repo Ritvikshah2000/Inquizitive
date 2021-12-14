@@ -26,13 +26,13 @@ h2 {
 }
 
 /* Start of option list styling */
-ul {
+.content ul {
   font-size: 20px;
   display: inline-block;
   text-align: left;
 }
 
-li {
+.content li {
   padding-bottom: 10px;
 }
 /* End of option list styling */

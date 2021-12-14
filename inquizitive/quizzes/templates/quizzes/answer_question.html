@@ -1,7 +1,7 @@
 {% extends "quizzes/base.html" %}
 {% block content %}
 {% load static %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'quizzes/quiz_question_view.css' %}">
 <h2>Answer Question</h2>
 
 <form action="{% url 'answer_question' quiz_id=question.Quiz_ID.id question_id=question.id %}" method="post">
