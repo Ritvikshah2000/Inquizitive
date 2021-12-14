@@ -1,7 +1,4 @@
-# Production Deployment of Inquizitive
-
-## Change Directory
-Run: "cd inquizitive"
+# Inquizitive
 
 ## Development Server:
 Run: "docker-compose up --build" <br />
@@ -26,3 +23,4 @@ To explore all the features of our website, we suggest you follow these simple s
 4. Change your profile picture or profile details via the profile page.
 5. View your quizzes and edit them via your profile.
 6. View statistics about your previous quiz attempts on your profile.
+
