@@ -29,7 +29,6 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   transition-duration: 0.2s;
-
 }
 
 input[type=text] {
@@ -44,18 +43,10 @@ input[type=text]:focus {
 }
 
 input[type=submit] {
-<<<<<<< HEAD
-    padding:5px 15px; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px; 
-=======
   padding: 5px 15px; 
   background: #ccc; 
   border: 0 none;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
->>>>>>> abhattha-dev
 }

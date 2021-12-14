@@ -14,10 +14,10 @@ h1 {
 
 .genre_list {
   position: absolute;
-  left: 30%;
+  left: 31.5%;
   display: block;
   margin: 0 auto; /* Centers element */
-  width: 50%;
+  width: 40%;
 }
 
 .genre_list ul {
