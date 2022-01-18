@@ -1,5 +1,5 @@
 # Inquizitive
-Navigate to folder containing code:
+Navigate to folder containing code: <br />
 Run: "cd inquizitive"
 
 ## Getting Started:
