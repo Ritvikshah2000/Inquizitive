@@ -3,6 +3,10 @@
 .env.prod
 .env.prod.db
 
+# DS_Store #
+
+.DS_Store
+
 # Django #
 *.log
 *.pot
