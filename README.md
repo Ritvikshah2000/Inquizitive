@@ -1,5 +1,6 @@
 # Inquizitive
-
+Navigate to folder containing code:
+Run: "cd inquizitive"
 
 ## Getting Started:
 1. Follow "Clean Docker Instance" steps
